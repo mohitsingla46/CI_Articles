@@ -20,7 +20,7 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Login</a></li>
+        <li><?= anchor('adminlogin/logout','Logout'); ?></li>
       </ul>
     </div>
   </div>
