@@ -19,6 +19,12 @@
         <div class="panel-body">
 		        <?= form_open('adminlogin/login',['class'=>'form-horizontal']); ?>
             <fieldset>
+                <?php if($error = $this->session->flashdata('login_failed')): ?>
+                    <div class="alert alert-dismissible alert-danger">
+                            <?= $error; ?>
+                    </div>
+                <?php endif; ?>
+               
                 <div class="form-group">
                     <label for="inputEmail" class="col-lg-2 control-label">Email</label>
                     <div class="col-lg-10">

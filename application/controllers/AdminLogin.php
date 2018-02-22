@@ -2,6 +2,9 @@
 
 class AdminLogin extends MY_Controller{
 	public function index(){
+		if($this->session->userdata('user_id'))
+			return redirect('admin/dashboard');
+		
 		$this->load->helper('form');
 		$this->load->view('admin/admin_login');
 	}
@@ -21,7 +24,8 @@ class AdminLogin extends MY_Controller{
 				return redirect('admin/dashboard');
 			}
 			else{
-				echo "Login Failed";
+				$this->session->set_flashdata('login_failed','Invalid Email or Password');
+				return redirect('adminlogin');
 			}
 		}
 		else{
