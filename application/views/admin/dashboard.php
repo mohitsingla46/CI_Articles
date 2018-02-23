@@ -1,6 +1,12 @@
 <?php include('admin_header.php'); ?>
 
 <div class="container">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-6">
+			<?= anchor('admin/add_article','Add Article',["class"=>"btn btn-primary pull-right"]); ?>
+			<br/><br/>
+		</div>
+	</div>
 	<table class="table table-striped table-hover">
 		<tr>
 			<td>#</td>
