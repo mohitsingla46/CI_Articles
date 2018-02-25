@@ -17,7 +17,7 @@ $config = [
 								[
 									'field' => 'title',
 									'label' => 'Article Title',
-									'rules' => 'required|alpha_dash'
+									'rules' => 'required'
 								],
 								[
 									'field' => 'body',
