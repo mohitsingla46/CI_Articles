@@ -1,7 +1,7 @@
 <?php include('admin_header.php'); ?>
 
 <div class="container">
-	<?= form_open('#',['class'=>'form-horizontal']); ?>
+	<?= form_open('admin/submit_article',['class'=>'form-horizontal']); ?>
 	<?= form_hidden('user_id',$this->session->userdata('user_id')); ?>
   		<fieldset>
   			<legend>Add Article</legend>

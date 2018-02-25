@@ -10,11 +10,9 @@ class AdminLogin extends MY_Controller{
 	}
 	public function login(){
 		$this->load->library('form_validation');
-		$this->form_validation->set_rules('email','Email ID','trim|required|valid_email');
-		$this->form_validation->set_rules('password','Password','trim|required');
 		$this->form_validation->set_error_delimiters('<div class="text-danger">', '</div>');
 
-		if($this->form_validation->run()){
+		if($this->form_validation->run('admin_login')){
 			$email = $this->input->post('email');
 			$password = $this->input->post('password');
 			$this->load->model('loginmodel');

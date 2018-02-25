@@ -13,6 +13,17 @@ class Admin extends MY_Controller{
 		$this->load->view('admin/add_article');
 	}
 
+	public function submit_article(){
+		$this->load->library('form_validation');
+		$this->form_validation->set_error_delimiters('<div class="text-danger">', '</div>');
+		if($this->form_validation->run('add_article_rules')){
+
+		}
+		else{
+			$this->load->view('admin/add_article');
+		}
+	}
+
 	public function __construct(){
 		parent::__construct();
 		if(! $this->session->userdata('user_id'))
