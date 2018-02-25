@@ -1,6 +1,5 @@
 <?php
 
-
 $config = [
 	'admin_login' => [
 						[
