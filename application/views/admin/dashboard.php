@@ -26,8 +26,19 @@
 			<td>1</td>
 			<td><?= $article->title; ?></td>
 			<td>
-				<a href="#" class="btn btn-default btn-xs">Edit</a>
-				<a href="#" class="btn btn-danger btn-xs">Delete</a>
+				<div class="row">
+					<div class="col-sm-1">
+						<?= anchor("admin/edit_article/{$article->id}","Edit",["class"=>"btn btn-default btn-xs"]); ?>
+					</div>
+					<div class="col-sm-1">
+						<?=
+							form_open("admin/delete_article",["onclick"=>"return cofirmDelete();"]),
+							form_hidden('article_id',$article->id),
+							form_submit(['value'=>'Delete','class'=>'btn btn-danger btn-xs']),
+							form_close();
+						 ?>
+					</div>
+				</div>
 			</td>
 		</tr>
 			<?php endforeach; ?>
