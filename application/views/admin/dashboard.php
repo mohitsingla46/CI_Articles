@@ -48,6 +48,7 @@
 			</tr>
 		<?php endif; ?>
 	</table>
+	<?= $this->pagination->create_links(); ?>
 </div>
 
 <?php include('admin_footer.php'); ?>

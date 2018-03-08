@@ -2,13 +2,22 @@
 
 class ArticlesModel extends CI_Model{
 
-	public function article_list(){
+	public function article_list($limit, $offset){
+		$user_id = $this->session->userdata('user_id');
+		$query = $this->db->select(['id','title'])
+						  ->from('articles')
+						  ->where('user_id',$user_id)
+						  ->limit($limit, $offset)
+						  ->get();
+		return $query->result();
+	}
+	public function num_rows(){
 		$user_id = $this->session->userdata('user_id');
 		$query = $this->db->select(['id','title'])
 						  ->from('articles')
 						  ->where('user_id',$user_id)
 						  ->get();
-		return $query->result();
+		return $query->num_rows();
 	}
 	public function add_article($array){
 		return $this->db->insert('articles',$array);

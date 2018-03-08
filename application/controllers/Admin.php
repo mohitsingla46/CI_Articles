@@ -3,7 +3,14 @@
 class Admin extends MY_Controller{
 
 	public function dashboard(){
-		$articles = $this->articlesmodel->article_list();
+		$this->load->library('pagination');
+		$config = [
+			'base_url'   => base_url('admin/dashboard'),
+			'per_page'   => 5,
+			'total_rows' => $this->articlesmodel->num_rows()
+		];
+		$this->pagination->initialize($config);
+		$articles = $this->articlesmodel->article_list($config['per_page'],$this->uri->segment(3));
 		$this->load->view('admin/dashboard',['articles'=>$articles]);
 	}
 
